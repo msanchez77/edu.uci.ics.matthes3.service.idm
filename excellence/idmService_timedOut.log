@@ -1,0 +1,108 @@
+[2019/06/08 22:37:11][CONFIG][initLogger]  Logging initialized.
+[2019/06/08 22:37:11][CONFIG][initService]  Starting service...
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Scheme: http://
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Hostname: andromeda-73.ics.uci.edu
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Port: 8295
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Path: /api/idm
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Logger output directory: ./logs/
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Logger output file: idmService_timedOut.log
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database hostname: matt-smith-v4.ics.uci.edu
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database port: 3306
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database username: cs122b_db121
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database password provided? true
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database name: cs122b_db121
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database driver: mysql
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Database connection settings: ?autoReconnect=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=PST
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Session timeout: 3000
+[2019/06/08 22:37:11][CONFIG][currentConfigs]  Session expiration: 1200000
+[2019/06/08 22:37:11][CONFIG][connectToDatabase]  Connecting to database...
+[2019/06/08 22:37:11][CONFIG][connectToDatabase]  Using MySQL driver: com.mysql.cj.jdbc.Driver
+[2019/06/08 22:37:11][CONFIG][connectToDatabase]  Using driver: com.mysql.cj.jdbc.Driver
+[2019/06/08 22:37:11][CONFIG][connectToDatabase]  Database URL: jdbc:mysql://matt-smith-v4.ics.uci.edu:3306/cs122b_db121?autoReconnect=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=PST
+[2019/06/08 22:37:11][CONFIG][connectToDatabase]  Connected to database: jdbc:mysql://matt-smith-v4.ics.uci.edu:3306/cs122b_db121?autoReconnect=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=PST
+[2019/06/08 22:37:11][CONFIG][initHTTPServer]  Initializing HTTP server...
+[2019/06/08 22:37:11][CONFIG][initHTTPServer]  Building URI from configs...
+[2019/06/08 22:37:11][CONFIG][initHTTPServer]  Final URI: http://andromeda-73.ics.uci.edu:8295/api/idm
+[2019/06/08 22:37:11][CONFIG][initHTTPServer]  Set Jersey resources.
+[2019/06/08 22:37:11][CONFIG][initHTTPServer]  Set Jackson as serializer.
+[2019/06/08 22:37:11][CONFIG][initHTTPServer]  Starting HTTP server...
+[2019/06/08 22:37:13][CONFIG][initHTTPServer]  HTTP server started.
+[2019/06/08 22:37:13][CONFIG][initService]  Service initialized.
+[2019/06/08 22:37:31][INFO][registerUser]  Getting request to register user...
+[2019/06/08 22:37:31][INFO][registerUser]  Source IP Received: 128.195.68.11
+[2019/06/08 22:37:31][INFO][sendIpStackRequest]  Getting request to receive information from IP Stack...
+[2019/06/08 22:37:31][INFO][sendIpStackRequest]  Received jsonText: {"ip":"128.195.68.11","hostname":"vcv068011.vpn.uci.edu","type":"ipv4","continent_code":"NA","continent_name":"North America","country_code":"US","country_name":"United States","region_code":"CA","region_name":"California","city":"Irvine","zip":"92697","latitude":33.6461,"longitude":-117.8425,"location":{"geoname_id":5359777,"capital":"Washington D.C.","languages":{"code":"en","name":"English","native":"English"},"country_flag":"http:\/\/assets.ipstack.com\/flags\/us.svg","country_flag_emoji":"\ud83c\uddfa\ud83c\uddf8","country_flag_emoji_unicode":"U+1F1FA U+1F1F8","calling_code":"1","is_eu":false}}
+[2019/06/08 22:37:31][INFO][sendIpStackRequest]  Successfully mapped response into a model!
+[2019/06/08 22:37:31][INFO][storeLocation]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO locations VALUES ('128.195.68.11', 'vcv068011.vpn.uci.edu', 'ipv4', 'NA', 'North America', 'US', 'United States', 'CA', 'California', 'Irvine', '92697', 33.6461, -117.8425);
+[2019/06/08 22:37:31][INFO][storeLocation]  Error storing information into transactions.
+[2019/06/08 22:37:31][INFO][storeTransaction]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO transactions (transactionid, sessionid, source_ip, request_time) VALUES ('477efa22d63eed9c486bd0f0ed611851483b005c67c7863392d1205a98a669e23003468edeb4b0feda41e2fcb9c87dff56912f11c11525e07592e649960a4bd5', null, '128.195.68.11', '2019-06-08 22:37:31.79');
+[2019/06/08 22:37:31][INFO][storeTransaction]  Query succeeded!
+[2019/06/08 22:37:31][INFO][registerUser]  JSON Text: {"email":"foobar10@uci.edu","password":"asdf1X@"}
+[2019/06/08 22:37:31][INFO][registerUser]  Email: foobar10@uci.edu
+[2019/06/08 22:37:31][INFO][valUnique]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT COUNT(*) FROM users WHERE email LIKE 'foobar10@uci.edu' 
+[2019/06/08 22:37:31][INFO][valUnique]  Query succeeded.
+[2019/06/08 22:37:31][INFO][constructResponseModel]  User registered successfully.
+[2019/06/08 22:37:31][INFO][setupInsert]  Received request to insert user into DB.
+[2019/06/08 22:37:32][INFO][insertUserToDB]  Inserting user into database...
+[2019/06/08 22:37:32][INFO][insertUserToDB]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO users (email, status, plevel, salt, pword, numAttempts) VALUES ('foobar10@uci.edu',1,5,'f01c652c','e217e37a49d62ffaec28a929d47e29acfa80b9840f2ed376b7f0adb30690038335e544f1ffb1d6130ed5685c169cd9f41f1973a50a7cbe8c1c38ea83df9e4190',0);
+[2019/06/08 22:37:32][INFO][setupInsert]  Record successfully inserted into DB
+[2019/06/08 22:37:49][INFO][loginUser]  Getting request to login user...
+[2019/06/08 22:37:49][INFO][loginUser]  Source IP Received: 128.195.68.11
+[2019/06/08 22:37:49][INFO][sendIpStackRequest]  Getting request to receive information from IP Stack...
+[2019/06/08 22:37:49][INFO][sendIpStackRequest]  Received jsonText: {"ip":"128.195.68.11","hostname":"vcv068011.vpn.uci.edu","type":"ipv4","continent_code":"NA","continent_name":"North America","country_code":"US","country_name":"United States","region_code":"CA","region_name":"California","city":"Irvine","zip":"92697","latitude":33.6461,"longitude":-117.8425,"location":{"geoname_id":5359777,"capital":"Washington D.C.","languages":{"code":"en","name":"English","native":"English"},"country_flag":"http:\/\/assets.ipstack.com\/flags\/us.svg","country_flag_emoji":"\ud83c\uddfa\ud83c\uddf8","country_flag_emoji_unicode":"U+1F1FA U+1F1F8","calling_code":"1","is_eu":false}}
+[2019/06/08 22:37:49][INFO][sendIpStackRequest]  Successfully mapped response into a model!
+[2019/06/08 22:37:49][INFO][storeLocation]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO locations VALUES ('128.195.68.11', 'vcv068011.vpn.uci.edu', 'ipv4', 'NA', 'North America', 'US', 'United States', 'CA', 'California', 'Irvine', '92697', 33.6461, -117.8425);
+[2019/06/08 22:37:49][INFO][storeLocation]  Error storing information into transactions.
+[2019/06/08 22:37:49][INFO][storeTransaction]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO transactions (transactionid, sessionid, source_ip, request_time) VALUES ('518466eb75a3b5c4f980ffbe4070df897f167256fdaaea17288c13947b52ed1e31707070d9c3dcdadacbcf2c96f42059d870623be704fc164395364cabfb664e', null, '128.195.68.11', '2019-06-08 22:37:49.66');
+[2019/06/08 22:37:49][INFO][storeTransaction]  Query succeeded!
+[2019/06/08 22:37:49][INFO][loginUser]  Email: foobar10@uci.edu
+[2019/06/08 22:37:49][INFO][valUnique]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT COUNT(*) FROM users WHERE email LIKE 'foobar10@uci.edu' 
+[2019/06/08 22:37:49][INFO][valUnique]  Query succeeded.
+[2019/06/08 22:37:49][INFO][incrementUserNumAttempts]  Updating user's number of attempts in response to failed login...
+[2019/06/08 22:37:49][INFO][incrementUserNumAttempts]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: UPDATE users SET numAttempts = numAttempts + 1 WHERE email = 'foobar10@uci.edu';
+[2019/06/08 22:37:49][INFO][checkNumAttemptsMoreThanThree]  Checking if user's has exceed maximum number of login attempts...
+[2019/06/08 22:37:49][INFO][checkNumAttemptsMoreThanThree]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT numAttempts FROM users WHERE email = 'foobar10@uci.edu' 
+[2019/06/08 22:37:49][INFO][checkNumAttemptsMoreThanThree]  Query succeeded.
+[2019/06/08 22:37:49][INFO][passwordMatch]  Attempting to match password in request and database...
+[2019/06/08 22:37:49][INFO][passwordMatch]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM users WHERE email LIKE 'foobar10@uci.edu' 
+[2019/06/08 22:37:49][INFO][passwordMatch]  Query succeeded.
+[2019/06/08 22:37:49][INFO][revokeActiveSession]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: UPDATE sessions SET status = 4 WHERE email = 'foobar10@uci.edu' AND status = 1;
+[2019/06/08 22:37:49][INFO][revokeActiveSession]  Query updated 0 sessions.
+[2019/06/08 22:37:49][INFO][insertSessionToDB]  Inserting session into database...
+[2019/06/08 22:37:49][INFO][insertSessionToDB]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO sessions (sessionID, email, status, timeCreated, lastUsed, exprTime) VALUES ('9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f','foobar10@uci.edu',1,'2019-06-08 22:37:49.735','2019-06-08 22:37:49.735','2019-06-08 22:57:49.735');
+[2019/06/08 22:37:49][INFO][resetLoginAttempts]  Resetting user's number of attempts in response to successful login...
+[2019/06/08 22:37:49][INFO][resetLoginAttempts]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: UPDATE users SET numAttempts = 0 WHERE email = 'foobar10@uci.edu';
+[2019/06/08 22:37:49][INFO][constructResponseModel]  User logged in successfully.
+[2019/06/08 22:38:20][INFO][sessionCheck]  Getting request to check session...
+[2019/06/08 22:38:20][INFO][sessionCheck]  Source IP Received: 128.195.68.11
+[2019/06/08 22:38:20][INFO][sendIpStackRequest]  Getting request to receive information from IP Stack...
+[2019/06/08 22:38:20][INFO][sendIpStackRequest]  Received jsonText: {"ip":"128.195.68.11","hostname":"vcv068011.vpn.uci.edu","type":"ipv4","continent_code":"NA","continent_name":"North America","country_code":"US","country_name":"United States","region_code":"CA","region_name":"California","city":"Irvine","zip":"92697","latitude":33.6461,"longitude":-117.8425,"location":{"geoname_id":5359777,"capital":"Washington D.C.","languages":{"code":"en","name":"English","native":"English"},"country_flag":"http:\/\/assets.ipstack.com\/flags\/us.svg","country_flag_emoji":"\ud83c\uddfa\ud83c\uddf8","country_flag_emoji_unicode":"U+1F1FA U+1F1F8","calling_code":"1","is_eu":false}}
+[2019/06/08 22:38:20][INFO][sendIpStackRequest]  Successfully mapped response into a model!
+[2019/06/08 22:38:20][INFO][storeLocation]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO locations VALUES ('128.195.68.11', 'vcv068011.vpn.uci.edu', 'ipv4', 'NA', 'North America', 'US', 'United States', 'CA', 'California', 'Irvine', '92697', 33.6461, -117.8425);
+[2019/06/08 22:38:20][INFO][storeLocation]  Error storing information into transactions.
+[2019/06/08 22:38:20][INFO][sessionCheck]  Email: foobar10@uci.edu
+[2019/06/08 22:38:20][INFO][storeLocation]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO locations VALUES ('128.195.68.11', 'vcv068011.vpn.uci.edu', 'ipv4', 'NA', 'North America', 'US', 'United States', 'CA', 'California', 'Irvine', '92697', 33.6461, -117.8425);
+[2019/06/08 22:38:20][INFO][storeLocation]  Error storing information into transactions.
+[2019/06/08 22:38:20][INFO][storeTransaction]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO transactions (transactionid, sessionid, source_ip, request_time) VALUES ('d406f0b54a5c38e457c61bfb5e7e272a0d67c1eaa5f4041d561d5c6837d7ea3e216252786636877c6b28f9f35379a1092c772223e46720edc3f128491388b9d8', '9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f', '128.195.68.11', '2019-06-08 22:38:20.747');
+[2019/06/08 22:38:20][INFO][storeTransaction]  Query succeeded!
+[2019/06/08 22:38:20][INFO][valUnique]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT COUNT(*) FROM users WHERE email LIKE 'foobar10@uci.edu' 
+[2019/06/08 22:38:20][INFO][valUnique]  Query succeeded.
+[2019/06/08 22:38:20][INFO][valExistence]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT COUNT(*) FROM sessions WHERE email LIKE 'foobar10@uci.edu' AND sessionID LIKE '9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f' 
+[2019/06/08 22:38:20][INFO][valExistence]  Query succeeded.
+[2019/06/08 22:38:20][INFO][valExistence]  Received: 1
+[2019/06/08 22:38:20][INFO][valExpired]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT exprTime FROM sessions WHERE email LIKE 'foobar10@uci.edu' AND sessionID LIKE '9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f' 
+[2019/06/08 22:38:20][INFO][valExpired]  Query succeeded.
+[2019/06/08 22:38:20][INFO][valExpired]  Checking if session is expired.
+[2019/06/08 22:38:20][INFO][valExpired]  Current time: 2019-06-08 22:38:20.757
+[2019/06/08 22:38:20][INFO][valExpired]  Expiration time: 2019-06-08 22:57:50.0
+[2019/06/08 22:38:20][INFO][valClosed]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT status FROM sessions WHERE email LIKE 'foobar10@uci.edu' AND sessionID LIKE '9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f' 
+[2019/06/08 22:38:20][INFO][valClosed]  Query succeeded.
+[2019/06/08 22:38:20][INFO][valTimedOut]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT lastUsed FROM sessions WHERE email LIKE 'foobar10@uci.edu' AND sessionID LIKE '9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f' 
+[2019/06/08 22:38:20][INFO][valTimedOut]  Query succeeded.
+[2019/06/08 22:38:20][INFO][valTimedOut]  Checking if session should be timed out.
+[2019/06/08 22:38:20][INFO][valTimedOut]  1560058700635 > 1560058673000 ?
+[2019/06/08 22:38:20][INFO][valTimedOut]  SESSION IS TIMED OUT
+[2019/06/08 22:38:20][INFO][setStatus]  Trying query: com.mysql.cj.jdbc.ClientPreparedStatement: UPDATE sessions set status = 5 WHERE sessionID = '9f749ea404e8df3bae35e36fcaf29c148e2606d7f660a0e6ef71628e8557fc422c5351f8b4029452557f98bd14781b6a1f0b09f7d3321d52ccf2fc97f6decb3f';
+[2019/06/08 22:38:20][INFO][setStatus]  Query succeeded.
+[2019/06/08 22:38:20][INFO][<init>]  Message is set to: Session is timed out.
+[2019/06/08 22:38:20][INFO][constructResponseModel]  Session is timed out.
